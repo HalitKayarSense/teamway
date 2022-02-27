@@ -1,5 +1,4 @@
-This is Code Test for personality test
-This is a next.js project used with TypeScript
+This is Code Test for personality test developed using next.js with TypeScript
 
 ## Setup
 
