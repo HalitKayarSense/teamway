@@ -1,0 +1,17 @@
+[
+    {
+        "title": "",
+        "details": "",
+        "requiredScore": 0
+    },
+    {
+        "title": "You are an intervert",
+        "details": "In general terms, introverts are people who prefer to think more than talk. They need to spend time alone, do not seek out loud social gatherings, and usually feel guilty about their less friendly nature",
+        "requiredScore": 8
+    },
+    {
+        "title": "You are an extrovert",
+        "details": "Extroverts are often described as happy, positive, cheerful, and sociable. They aren't as likely to dwell on problems or ponder difficulties. While they experience difficulties and troubles like anyone else, extroverts are often more able to let it roll off their backs.",
+        "requiredScore": 20
+    }
+]

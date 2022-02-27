@@ -1,0 +1,296 @@
+/* fonts */
+
+@font-face {
+    font-family: Goldplay;
+    src: url(../public/fonts/GoldplayAlt-Regular.ttf);
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: Goldplay;
+    src: url(../public/fonts/GoldplayAlt-SemiBold.ttf);
+    font-weight: bold;
+}
+
+/* basic elements */
+.separator {
+    border: 1px solid lightgray;
+    margin-bottom: '10px';
+}
+
+.main-box {
+    margin: auto;
+    background-color: #eeebe3;
+    width: 700px;
+    max-width: 90%;
+    min-width: 300px;
+    padding: 20px;
+    padding-bottom: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+}
+
+
+.teamway-logo {
+    margin: auto;
+    width: 200px;
+    max-width: 70%;
+    margin-bottom: 50px;
+}
+
+.teamway-logo-sub {
+    padding: 0;
+    margin: 0;
+    float: left;
+    margin-bottom: 10px;
+    font-weight: bold;
+    font-family: Goldplay;
+    font-size: 20px;
+    color: #0f393b;
+}
+
+.teamway-logo-sub-small {
+    padding: 0;
+    margin: 0;
+    float: right;
+    font-weight: bold;
+    font-family: Goldplay;
+    font-size: 15px;
+    color: #0f393b;
+}
+
+.loading-message{
+    font-weight: bold;
+    font-family: Goldplay;
+    font-size: 30px;
+    color: #0f393b;
+    text-align: center;
+}
+
+/* landing page elements */
+
+.landing-box {
+    text-align: center;
+}
+
+.landing-header {
+    font-weight: bold;
+    font-family: Goldplay;
+    font-size: 30px;
+    color: #0f393b;
+    margin-bottom: 10px;
+}
+
+.landing-content {
+    font-weight: bold;
+    font-family: Goldplay;
+    font-size: 15px;
+    color: #347362;
+    margin-bottom: 10px;
+}
+
+.start-button {
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    padding: 15px;
+    width: 200px;
+    border: none;
+    outline: none;
+    font-family: Goldplay;
+    font-size: 20px;
+    font-weight: bold;
+    color: #fff;
+    margin-top: 20px;
+    cursor: pointer;
+    transition: all 0.3s;
+    background-color: #347362;
+}
+
+.start-button:hover {
+    background-color: #ef8451;
+}
+
+/* progress elements */
+
+.progress-box {
+    height: 100px;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 30px;
+    background-color: #dddad1;
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    border-radius: 30px;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.inner-progress-bar {
+    width: 100%;
+    height: 30px;
+    background-color: #347362;
+    transition: 0.2s;
+}
+
+.question-percentage {
+    float: right;
+    font-weight: bold;
+    color: #6b8483;
+    font-family: Goldplay;
+    font-size: 20px;
+}
+
+.question-state {
+    float: left;
+    font-weight: bold;
+    font-family: Goldplay;
+    font-size: 20px;
+    color: #0f393b;
+}
+
+
+/* question & answers elements */
+
+.answer-div-selection {
+    margin-top: 5px;
+    transition: 0.1s;
+    width: 100%;
+    height: auto;
+    cursor: pointer;
+    float: left;
+    margin-bottom: 20px;
+    margin-left: 10px;
+}
+
+
+.radius-selection-outer {
+    width: 20px;
+    margin-right: 20px;
+    float: left;
+}
+
+.radius-selection {
+    width: 20px;
+    height: 20px;
+    background-color: rgb(255, 255, 255);
+    -webkit-border-radius: 150px;
+    -moz-border-radius: 150px;
+    border-radius: 150px;
+    margin-right: 10px;
+    border: 2px solid #347362;
+    transition: 0.2s;
+    text-align: center;
+}
+
+.answer-box {
+    font-size: 15px;
+    font-size: 16px;
+    color: #445554;
+    float: left;
+    width: 80%;
+}
+
+.radius-selection:hover {
+    background-color: #347362;
+}
+
+.radius-selection-selected {
+    background-color: #ef8451 !important;
+    border: 2px solid #c56b41 !important;
+}
+
+.question-div {
+    font-family: Goldplay;
+    font-size: 16px;
+    font-weight: bold;
+    color: #0f393b;
+    margin-bottom: 15px;
+}
+
+/* navigation buttons */
+
+.nav-button {
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    padding: 10px;
+    width: 120px;
+    border: none;
+    outline: none;
+    font-family: Goldplay;
+    font-size: 15px;
+    font-weight: bold;
+    color: #fff;
+    margin-right: 20px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.prev-button {
+    color: #347362;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.prev-button::before {
+    content: "<"attr(title);
+    letter-spacing: -10px;
+    padding-right: 0;
+    opacity: 0;
+    transition: letter-spacing 0.2s ease-out, opacity 0.2s ease-out, padding-right 0.2s ease-out;
+}
+
+.prev-button:hover::before {
+    text-indent: 0px;
+    letter-spacing: normal;
+    opacity: 1;
+    padding-right: 10px;
+}
+
+
+.next-button {
+    background-color: #347362;
+}
+
+.next-button:hover {
+    background-color: #ef8451;
+}
+
+.next-button::after {
+    content: ">"attr(title);
+    letter-spacing: -10px;
+    padding-left: 0;
+    opacity: 0;
+    transition: letter-spacing 0.2s ease-out, opacity 0.2s ease-out, padding-left 0.2s ease-out;
+}
+
+.next-button:hover::after {
+    text-indent: 0px;
+    letter-spacing: normal;
+    opacity: 1;
+    padding-left: 10px;
+}
+
+
+/* results box elements */
+
+.result-title {
+    color: #347362;
+    font-family: Goldplay;
+    font-weight: bold;
+    font-size: 30px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.result-details {
+    color: #0f393b;
+    font-family: Goldplay;
+    font-weight: bold;
+    font-size: 15px;
+    text-align: center;
+    margin-bottom: 10px;
+}
