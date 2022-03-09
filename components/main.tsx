@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { getPersonalityTypes, getQuestions, PersonalityType, Question } from '../data'
 import styles from '../styles/main.module.css'
+import { setCookies, getCookie, removeCookies } from 'cookies-next';
 
 //used for questions navigation
 enum navDir {
@@ -17,16 +18,36 @@ export default function QuestionsBox() {
   const [progress, setProgress] = useState(0)
   const [isFinish, setIsFinish] = useState(false)
 
-  //called once at start to get questions from json file and initialize the test
+  //called once at start to get questions and any stored answers from json file and initialize the test
   const initialize = async () => {
+    
     let _questions = await getQuestions();
     let _answered = [] as number[];
-    for (let i = 0; i < _questions.length; i++) {
-      _answered[i] = -1;
+    let _startingQuestion = 0;
+    console.log(_questions)
+
+    let storedAnsweredList = getCookie('answeredList');
+
+    //get stored answers and continue from last stopped point
+    if (typeof storedAnsweredList != 'undefined') {
+      _answered = Object.values(JSON.parse(storedAnsweredList as string));
+
+      let count = 0;
+      for (let i = 0; i < _answered.length; i++) {
+
+        count += _answered[i] != -1 ? 1 : 0;
+      }
+      _startingQuestion = count;
+    } else {
+      for (let i = 0; i < _questions.length; i++) {
+        _answered[i] = -1;
+      }
     }
+
     setQuestions(_questions);
     setAnsweredList(_answered);
-    setCurrentQuestionIndex(0);
+    setCurrentQuestionIndex(_startingQuestion);
+    setProgress(_startingQuestion);
     setIsLoading(false);
   }
 
@@ -41,6 +62,7 @@ export default function QuestionsBox() {
   }
 
   const finish = () => {
+    removeCookies('answeredList');
     setIsFinish(true);
   }
 
@@ -49,6 +71,7 @@ export default function QuestionsBox() {
     let isFirstTime = tmp[currentQuestionIndex] == -1;
     tmp[currentQuestionIndex] = answerIndex;
     setAnsweredList(tmp)
+    setCookies('answeredList', JSON.stringify(tmp));
 
     //in case the answer was selected first time, move to next question automatically
     if (isFirstTime) navQuestion(navDir.right)
@@ -71,6 +94,7 @@ export default function QuestionsBox() {
 
             <div className={styles['question-div']}>{questions[currentQuestionIndex].text}</div>
             {/*map over the answers from the question object*/}
+            {console.log(currentQuestionIndex)}
             {questions[currentQuestionIndex].answers.map((answer, i) => {
               return (
                 <div className={styles['answer-div-selection']} key={i} onClick={() => setAnswer(i)}>

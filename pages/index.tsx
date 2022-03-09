@@ -1,13 +1,17 @@
 import styles from '../styles/main.module.css'
 import teamwayLogo from "../public/TeamwayLogo.svg"
 import QuestionsBox from '../components/main'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 import Head from 'next/head'
+import { getCookie, removeCookies } from 'cookies-next'
 
+export const checkStoredData = () => {
+  let _initial = getCookie('answeredList');
+  return typeof _initial != 'undefined';
+}
 
-
-function Home() {
+export default function Home() {
 
   const [isStarted, setIsStarted] = useState(false)
 
@@ -15,6 +19,19 @@ function Home() {
   const start = () => {
     setIsStarted(true);
   }
+
+  const reset = () => {
+    removeCookies('answeredList');
+    setIsStarted(false);
+  }
+
+  const initilize = () => {
+    if (checkStoredData()) start();
+  }
+
+  useEffect(() => {
+    initilize();
+  }, []);
 
   return (
     <>
@@ -41,18 +58,19 @@ function Home() {
               <div className={styles['landing-content']}>
                 So do you consider yourself more of an introvert or an extrovert? Take this test, put together with input from psychoanalyst Sandrine Dury, and find out
               </div>
-              <button className={styles['start-button']} onClick={() => start()}>
+              <button id='start-button' className={styles['start-button']} onClick={() => start()}>
                 START TEST
               </button>
             </div>
           </>
         }
+        {isStarted ? <button id='restart-button' className={styles['base-button']} onClick={() => reset()}>Restart</button> : ''}
       </div>
+
     </>
   )
 }
 
 
-export default Home
 
 

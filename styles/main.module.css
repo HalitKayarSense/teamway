@@ -68,6 +68,30 @@
     text-align: center;
 }
 
+.base-button{
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    padding: 10px;
+    width: 90px;
+    border: none;
+    outline: none;
+    font-family: Goldplay;
+    font-size: 13px;
+    font-weight: bold;
+    color: #fff;
+    margin-top: 25px;
+    cursor: pointer;
+    float: right;
+    transition: all 0.3s;
+    background-color: #347362;
+}
+
+.base-button:hover{
+    
+    background-color: #1e5244;
+}
+
 /* landing page elements */
 
 .landing-box {
